@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap 3, from LayoutIt!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+  
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="clases_js/personatge.js"></script>
+    <script type="text/javascript" src="clases_js/joc.js"></script>
+</head>
+<script type="text/javascript">
+    joc = new joc();
+
+    /*PERSONATGE ARQUER*/
+
+    arquer = new personatge();
+    arquer.nom ="Legolas";
+    arquer.cognom = "sc";
+    arquer.raça = "Arquer";
+    arquer.nmagia = 1000;
+    arquer.nfor = 600;
+    arquer.nintel = 1500;
+    arquer.generador(arquer.nmagia, arquer.nfor, arquer.nintel, arquer.raça);
+
+    joc.agefirPersonatge(0,arquer);
+
+    arquer.debug(true);
+
+    /*PERSONATGE ARQUER*/
+
+    /*PERSONATGE CABALLER*/
+
+    caballer = new personatge();
+    caballer.nom ="Aragorn";
+    caballer.cognom = "sc";
+    caballer.raça = "Caballer";
+    caballer.nmagia = 0;
+    caballer.nfor = 800;
+    caballer.nintel = 1200;
+    caballer.generador(caballer.nmagia, caballer.nfor, caballer.nintel, caballer.raça);
+
+    joc.agefirPersonatge(1,caballer);
+
+    caballer.debug(true);
+
+    /*PERSONATGE CABALLER*/
+
+    /*PERSONATGE ENANO*/
+
+    enano = new personatge();
+    enano.nom ="Gimli";
+    enano.cognom = "sc";
+    enano.raça = "Guerrer Enano";
+    enano.nmagia = 0;
+    enano.nfor = 950;
+    enano.nintel = 900;
+    enano.generador(enano.nmagia, enano.nfor, enano.nintel, enano.raça);
+
+    joc.agefirPersonatge(2,enano);
+
+    enano.debug(false);
+
+    enano = new personatge();
+    enano.nom ="Gimli6";
+    enano.cognom = "sc";
+    enano.raça = "Guerrer Enano";
+    enano.nmagia = 25;
+    enano.nfor = 150;
+    enano.nintel = 950;
+    enano.generador(enano.nmagia, enano.nfor, enano.nintel, enano.raça);
+
+    joc.agefirPersonatge(3,enano);
+
+    enano.debug(false);
+
+    caballer = new personatge();
+    caballer.nom ="Aragorn2";
+    caballer.cognom = "sc";
+    caballer.raça = "Caballer";
+    caballer.nmagia = 150;
+    caballer.nfor = 80;
+    caballer.nintel = 1200;
+    caballer.generador(caballer.nmagia, caballer.nfor, caballer.nintel, caballer.raça);
+
+    joc.agefirPersonatge(4,caballer);
+
+    caballer.debug(true);
+
+    /*PERSONATGE ENANO*/
+
+</script>
+    <body>
+        <div class="container">
+            <div class="row clearfix">
+                <p>Per poder veure les caracteristiques de cada personatge a la consola, s'ha d'entrar al mode debug..</p>
+                <div id="div_tot" class="col-md-12">
+                    <div class="col-md-4">
+                        <button id="ordenar" class="btn btn-default">Ordenar</button>
+                        <!--<button id="tornar" class="btn btn-default">Mostrar Ordenats</button>-->
+                    </div>
+                    <div id="div_" class="col-md-4">
+                        <div id="div_personatges" hidden>
+
+                        </div>
+                        <div style="margin-top: 50px;" id="ordenats" hidden>
+                            <h3>Ordenats:</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <button id="datos" class="btn btn-default">Carregar dades</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

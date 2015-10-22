@@ -1,0 +1,413 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style>
+      body {
+        margin: 0px;
+        padding: 0px;
+        
+      }
+      #container {
+        
+        width: 608px;
+        height: 480px;
+        background-image: url("fondo.png");
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container"></div>
+    <script src="kinetic-v4.7.4.min.js"></script>
+    <script src="jquery-1.3.2.js"></script>
+
+    <script defer="defer">
+      var stage = new Kinetic.Stage({
+        container: 'container',
+        width: 608,
+        height: 480
+      });
+      var layer = new Kinetic.Layer();
+
+      var c=5;
+      var c1=10;
+      var c2=15;
+      var c3=20;
+      var duracion= 5.5;
+      
+
+      var tri = new Array();
+      var tri1 = new Array();
+      var tri2 = new Array();
+      var tri3 = new Array();
+      var tri4 = new Array();
+      var tri5 = new Array();
+
+      var twen = new Array();
+
+      var contador = new Array();
+      var contador1 = new Array();
+      var contador2 = new Array();
+      var contador3 = new Array();
+      var contador4 = new Array();
+      var contador5 = new Array();
+
+      var i = 0;
+      var j = 0; 
+      var x = 0; 
+      var t = 0;
+      var f = 0;
+
+      
+
+      //---------------------CREACION COPOS NIEVE------------------------------
+
+
+      for (i = 0, j = 0, x = 0, t = 0, p = 0, f = 0; i< 70, x< 70, j< 70, t< 70, p<70, f<70; i++, x++,j++,t++,p++, f++, duracion = Math.random()* (8-3)+3)
+      {
+	        tri[i] = new Kinetic.RegularPolygon({
+	        x: c,
+	        y: Math.random() * (-500) -1,
+	        sides: 3,
+	        radius: 7,
+	        fill: '#6faa8c',
+	        stroke: '#6faa8c',
+	        strokeWidth: 5.5
+      	});
+
+          contador.push(Math.round(Math.random()*50));
+          contador1.push(Math.round(Math.random()*50));
+          contador2.push(Math.round(Math.random()*50));
+          contador3.push(Math.round(Math.random()*50));
+          contador4.push(Math.round(Math.random()*50));
+
+          tri1[j] = new Kinetic.RegularPolygon({
+          x: c1,
+          y: Math.random() * (-500) -1,
+          sides: 3,
+          radius: 7,
+          fill: '#bf4040',
+          stroke: '#bf4040',
+          strokeWidth: 5.5
+        });
+
+          tri2[x] = new Kinetic.RegularPolygon({
+          x: c2,
+          y: Math.random() * (-500) -1,
+          sides: 3,
+          radius: 7,
+          fill: '#2c7385',
+          stroke: '#2c7385',
+          strokeWidth: 5.5
+        });
+
+          tri3[t] = new Kinetic.RegularPolygon({
+          x: c3,
+          y: Math.random() * (-500) -1,
+          sides: 3,
+          radius: 7,
+          fill: '#d9c1ea',
+          stroke: '#d9c1ea',
+          strokeWidth: 5.5
+        });
+
+          tri4[p] = new Kinetic.RegularPolygon({
+          x: c,
+          y: Math.random() * (-500) -1,
+          sides: 3,
+          radius: 7,
+          fill: '#c6b953',
+          stroke: '#c6b953',
+          strokeWidth: 5.5
+        });
+
+          tri5[f] = new Kinetic.RegularPolygon({
+          x: c,
+          y: Math.random() * (-500) -1,
+          sides: 3,
+          radius: 7,
+          fill: '#e4f4f6',
+          stroke: '#e4f4f6',
+          strokeWidth: 5.5
+        });
+
+
+      // add the shape to the layer
+      	layer.add(tri[i]);
+        layer.add(tri1[j]);
+        layer.add(tri2[x]);
+        layer.add(tri3[t]);
+        layer.add(tri4[p]);
+
+      	c = c  + 15;
+        c1= c1 + 15;
+        c2= c2 + 15;
+        c3= c3 + 15;
+      
+      };
+
+      //-------------------------------NIEVE----------------------------------
+
+      var scale =	0.8;
+
+      //-------------------ANIMACIÓN COPOS DE NIEVE-------------------------
+      var anim = new Kinetic.Animation(function(frame) {
+ 
+        for (i=0; i<70; i++)
+        {
+          if (tri[i].getAttr("y") < 440)
+          {
+               tri[i].setY(tri[i].getY() + 2.6);
+               //var scale = tri[i].getScale();
+               scale+=0.001;
+               tri[i].setScale(scale);
+               tri[i].setZIndex(-1000);
+
+               
+               
+
+          } 
+          else {
+             //if(contador[i]==0){
+                //var rand = Math.random()*50;
+                
+                if(contador[i]>0){
+                  tri[i].setY( tri[i].getY() + 1);
+                
+                  contador[i]--;
+                }
+              
+          }
+
+         
+        } 
+      }, layer);
+
+        anim.start(); 
+
+//-------------------ANIMACIÓN COPOS DE NIEVE-------------------------
+
+      var anim1 = new Kinetic.Animation(function(frame) {
+
+        for (j=0; j<70; j++)
+        {
+          if (tri1[j].getAttr("y") < 440)
+          {
+               tri1[j].setY(tri1[j].getY() + 2.5);
+          } 
+          else {
+             //if(contador[i]==0){
+                //var rand = Math.random()*50;
+                
+                if(contador1[j]>0){
+                  tri1[j].setY( tri1[j].getY() + 1);
+                
+                  contador1[j]--;
+                }
+              //}
+          }
+            
+         // tri[i].setY(-2);
+        } 
+      }, layer);
+
+        anim1.start();
+
+      	//-------------------ANIMACIÓN COPOS DE NIEVE-------------------------
+
+      var anim2 = new Kinetic.Animation(function(frame) {
+var scale = 0.8;
+        for (x=0; x<70; x++)
+        {
+          if (tri2[x].getAttr("y") < 440)
+          {
+               tri2[x].setY(tri2[x].getY() + 3);
+
+          } 
+          else {
+             //if(contador[i]==0){
+                //var rand = Math.random()*50;
+                
+                if(contador2[x]>0){
+                  tri2[x].setY( tri2[x].getY() + 1);
+                
+                  contador2[x]--;
+                }
+              //}
+          }
+            
+         // tri[i].setY(-2);
+        } 
+      }, layer);
+
+        anim2.start();
+
+      	//-------------------ANIMACIÓN COPOS DE NIEVE-------------------------
+
+      var anim3 = new Kinetic.Animation(function(frame) {
+
+        for (t=0; t<70; t++)
+        {
+          if (tri3[t].getAttr("y") < 440)
+          {
+               tri3[t].setY(tri3[t].getY() + 2.2);
+          } 
+          else {
+             //if(contador[i]==0){
+                //var rand = Math.random()*50;
+                
+                if(contador3[t]>0){
+                  tri3[t].setY( tri3[t].getY() + 1);
+                
+                  contador3[t]--;
+                }
+              //}
+          }
+            
+         // tri[i].setY(-2);
+        } 
+      }, layer);
+
+        anim3.start();
+
+
+	   //---------------------ANIMACIÓN COPOS DE NIEVE-------------------------
+
+        var anim4 = new Kinetic.Animation(function(frame) {
+
+        for (p=0; p<70; p++)
+        {
+          if (tri4[p].getAttr("y") < 440)
+          {
+               tri4[p].setY(tri4[p].getY() + 2.5);
+          } 
+          else {
+             //if(contador[i]==0){
+                //var rand = Math.random()*50;
+                
+                if(contador4[p]>0){
+                  tri4[p].setY( tri4[p].getY() + 1);
+                
+                  contador4[p]--;
+                }
+              //}
+          }
+            
+         // tri[i].setY(-2);
+        } 
+      }, layer);
+
+        anim4.start();
+
+
+
+
+      //---------------------ANIMACIÓN COPOS DE NIEVE-------------------------
+      var anim5 = new Kinetic.Animation(function(frame) {
+
+        for (f=0; f<70; f++)
+        {
+          if (tri5[f].getAttr("y") < 440)
+          {
+               tri5[f].setY(tri5[f].getY() + 2.5);
+          } 
+          else {
+             //if(contador[i]==0){
+                //var rand = Math.random()*50;
+                
+                if(contador5[f]>0){
+                  tri5[f].setY( tri5[f].getY() + 1);
+                
+                  contador5[f]--;
+                }
+              //}
+          }
+            
+         // tri[i].setY(-2);
+        } 
+      }, layer);
+
+        anim5.start();
+
+
+
+
+      //---------------------------MERY CHRISTMAS-----------------------------
+
+      var imageObj = new Image();
+      imageObj.onload = function() {
+        var mery = new Kinetic.Image({
+          x: -362,
+          y: 400,
+          image: imageObj,
+          width: 356,
+          height: 178
+        });
+ 
+        layer.add(mery);
+
+        stage.add(layer);
+
+      var tween = new Kinetic.Tween({
+        node: mery, 
+        duration: 0.5,
+        x: 170,
+        y: 60
+        
+      });
+
+      // start tween after 2 seconds
+      setTimeout(function() {
+        tween.play();
+      }, 12000);
+      
+      };
+
+      //---------------------------MERY CHRISTMAS------------------------------
+
+      //------------------------------NEW YEAR---------------------------------
+
+	 var imageObj2 = new Image();
+      imageObj2.onload = function() {
+        var year = new Kinetic.Image({
+          x: -362,
+          y: 400,
+          image: imageObj2,
+          width: 356,
+          height: 178
+        });
+ 
+        layer.add(year);
+
+        stage.add(layer);
+
+      var tween = new Kinetic.Tween({
+        node: year, 
+        duration: 0.6,
+        x: 170,
+        y: 180
+        
+      });
+
+	// start tween after 2 seconds
+      setTimeout(function() {
+        tween.play();
+      }, 16000);
+      
+      };
+
+      //------------------------------NEW YEAR---------------------------------
+
+      imageObj.src = 'mery.png';
+
+      imageObj2.src = 'year.png';
+
+      function parar(){
+      	anim.stop();
+      }
+
+
+
+    </script>
+    <button onclick="parar()" ></button>
+  </body>
+</html>

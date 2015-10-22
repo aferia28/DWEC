@@ -1,0 +1,25 @@
+.casilla {
+    height: 60px;
+    width: 60px;
+    border: 1.5px solid black;
+    float: left;
+    background-color: #f7e1b5;
+}
+
+.destino{
+    height: 60px;
+    width: 60px;
+    border: 1.5px solid black;
+    float: left;
+    background-color: white;
+}
+
+.portada{
+    background: url("../angrybackground2.png") center no-repeat fixed;
+    background-size: cover;
+}
+
+.contentNormal
+{
+    border: 2px solid #669900;
+}

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="img/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
+  <link rel="shortcut icon" href="img/favicon.png">
+  
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+</head>
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	var name;
+	var emal;
+	var telefono;
+
+	var resultado;
+    var resultado2;
+    var resultado3;
+
+    var radiobutton = document.getElementsByName("res1");
+    var radiobutton2 = document.getElementsByName("res2");
+    var radiobutton3 = document.getElementsByName("res3");
+
+	var sources = [
+
+    "yeti1.jpg",
+    "yeti2.jpg",
+    "yeti3.jpg",
+    "yetiprincipal.jpg",
+    "monoprincipal.jpg",
+    "mono2.jpg",
+    "mono3.jpg",
+    "mono1.jpg",
+    "aguaraprincipal.jpg",
+    "aguara2.jpg",
+    "aguara3.jpg",
+    "aguara1.jpg"
+      ];
+
+	 obtenerFecha = function(){
+		
+		var today = new Date(); //recogemos la fecha actual
+		var dd = today.getDate(); // de esta fecha asignamos a la variable dd el valor del dia
+		var mm = today.getMonth()+1; // del mes... tener en cuenta que Enero es 0!!
+		var yyyy = today.getFullYear(); // y el año..
+
+		if(dd<10) {
+		    dd = "0" + dd;
+		} 
+
+		if(mm<10) {
+		    mm = "0" + mm;
+		} 
+
+		today = (dd + "/" + mm + "/" + yyyy);
+	
+		document.getElementById("fecha").innerHTML = today;
+
+	}
+
+	recogerValores = function(){
+
+		name = document.getElementById("inputnombre").value;
+		emal = document.getElementById("inputemail").value;
+		telefono = document.getElementById("inputtel").value;
+
+		if(name != "" && emal != "" && telefono != "")
+		{
+			document.getElementById('section1').style.display = 'block';
+		}else{
+			alert("Introduce todos los datos")
+		}
+	}
+
+	alertVariables = function(){
+		console.log(name);
+		console.log(emal);
+		console.log(telefono);
+	}
+
+	loadImages = function() {
+
+        var images = []; // declaramos una array vacia que iremos llenando a la hora de cargar las imagenes. Será nuestra array donde guardaremos los indices.
+        var loadedImages = 0; //variable que nos indicará cada vez que se carga una imagen.
+        var numImages = 0; //variable que nos va a indicar la cantidad de imagenes que tenemos con un numero entero.
+        
+
+        for(var items in sources) { //obtenemos el numero de imagenes que tenemos.
+          numImages++;
+          console.log("Hay " + numImages + " imagenes");
+        }
+        for(var items in sources) { 
+      
+          images[items] = new Image(); // cada valor de la array images[] es una Imagen()
+          
+          images[items].onload = function() {
+            
+            if(++loadedImages >= numImages) { //Cuando la variable loadedImages sea superior a numImages (numero total de imagenes), todas las imagenes estarán cargadas.
+              console.log("IMAGENES CARGADAS!");
+               //callback que muestra las imagenes.
+            }
+
+          };
+
+          images[items].src = "img/" + sources[items]; //Ruta de las imagenes que tenemos en local.
+        }
+      }
+ 
+ 	mostrarImagenes = function(){
+
+
+        if(resultado3 == "Isla")
+        {
+        	sources = [
+        		"monoprincipal.jpg",
+        		"mono1",
+        		"mono2",
+        		"mono3"
+        	];
+        	stringr1 = name + " ¡¡Tienes toda la pinta de ser un mono HAHAHAHA!!";
+        	document.getElementById("resultadostring").innerHTML = stringr1;
+			document.getElementById("imgprincipal").innerHTML = "<img class='imagenesprincipal' style='border-radius: 2%;' src='img/monoprincipal.jpg'>";
+
+			var numerosAle = [];
+			var numerosAle2 = [];
+
+        	do
+        	{
+	          var x = Math.floor((Math.random() * 3) + 1);
+	          var y = Math.floor((Math.random() * 3) + 1);
+
+			  console.log(x);
+			  
+	          if(numerosAle.indexOf(x)==-1 && numerosAle2.indexOf(y) == -1)
+	          {
+	          	numerosAle.push(x);
+	          	numerosAle2.push(y);
+
+        		document.getElementById("imgsec" + y).innerHTML = "<img id='imgsecs' style='border-radius: 2%;' class='imagenesecundaria' src='img/mono" + x + ".jpg'>";
+
+          	  }
+        	}while(numerosAle.length < 3 && numerosAle2.length < 3)         	
+
+        }else
+        if(resultado3 == "Patagonia")
+        {
+        	sources = [
+        		"aguaraprincipal.jpg",
+        		"aguara1.jpg",
+        		"aguara2.jpg",
+        		"aguara3.jpg"
+        	];
+
+        	stringr2 = name + " Con la información recibida, podrías pertecener perfectamente a una manada de aguará-guazú.";
+			document.getElementById("resultadostring").innerHTML = stringr2;
+			document.getElementById("imgprincipal").innerHTML = "<img class='imagenesprincipal' style='border-radius: 2%;' src='img/aguaraprincipal.jpg'>";
+        
+        	var numerosAle = [];
+        	var numerosAle2 = [];
+
+        	do
+        	{
+	          var x = Math.floor((Math.random() * 3) + 1);
+	          var y = Math.floor((Math.random() * 3) + 1);
+			  console.log(x);
+			  
+	          if(numerosAle.indexOf(x)==-1 && numerosAle2.indexOf(y)==-1) //Si el valor random de la X no esta en la array numeroAle te devuelve -1 (Esto quiere decir que el numero no esta repetido) y con el push dentro del if lo añade.
+	          {
+	          	numerosAle.push(x); //añade el X a la arrray numerosAle.
+	          	numerosAle2.push(y);
+
+        		document.getElementById("imgsec" + y).innerHTML = "<img id='imgsecs' style='border-radius: 2%;' class='imagenesecundaria' src='img/aguara" + x + ".jpg'>";
+
+          	  }
+        	}while(numerosAle.length < 3 && numerosAle2.length < 3) 
+        	
+        }else
+        if (resultado3 == "Alpes") 
+        {
+        	sources = [
+        		"yetiprincipal.jpg",
+        		"yeti1.jpg",
+        		"yeti2.jpg",
+        		"yeti3.jpg"
+         	];
+
+         	stringr3 = name + " ¿Los Alpes Franceses? Eres familiar del Yeti";
+			document.getElementById("resultadostring").innerHTML = stringr3;
+			document.getElementById("imgprincipal").innerHTML = "<img id='imgprin' style='border-radius: 2%;' class='imagenesprincipal' src='img/yetiprincipal.jpg'>";
+         	
+			var numerosAle = [];
+			var numerosAle2 = [];
+
+			do
+        	{
+	          var x = Math.floor((Math.random() * 3) + 1);
+	          var y = Math.floor((Math.random() * 3) + 1);
+
+	          console.log(x);
+
+	          if(numerosAle.indexOf(x) == -1 && numerosAle2.indexOf(y) == -1)
+	          {
+	          	numerosAle.push(x);
+	          	numerosAle2.push(y);
+
+        		document.getElementById("imgsec" + y).innerHTML = "<img id='imgsecs' style='border-radius: 2%;' class='imagenesecundaria' src='img/yeti" + x + ".jpg'>";
+
+          	  }
+        	}while(numerosAle.length < 3 && numerosAle2.length < 3) 
+        }
+
+        document.getElementById("section3").style.display = "block";
+        document.getElementById("botonEliminar").innerHTML = "<button onclick='borrarElementos()'; data-toggle='modal' data-target='#modalPreguntas' type='submit' id='botonBorrar' class='boton btn btn-warning' style='margin-left: 5%; width:35%; background-color: #098fdf;'>Repetir formulario</button>";
+
+ 	}
+
+ 	capturarRadio = function()
+    {
+
+
+        var stringr1;
+        var stringr2;
+        var stringr3;
+        
+        // Recorremos todos los valores del radio button para encontrar el
+        // seleccionado
+        for(var i=0; i<radiobutton.length; i++)
+        {
+            if(radiobutton[i].checked)
+            {
+                resultado=radiobutton[i].value;
+            }
+        }
+
+        for(var j=0; j<radiobutton2.length; j++)
+        {
+            if(radiobutton2[j].checked)
+            {
+            	resultado2=radiobutton2[j].value;
+            }
+        }        
+        
+        for(var x=0; x<radiobutton3.length; x++)
+        {
+            if(radiobutton3[x].checked)
+            {
+            	resultado3=radiobutton3[x].value;
+
+            }
+        }        
+       
+        document.getElementById("section2").style.display = "block";
+       	mostrarImagenes();
+        //alert(resultado);
+        //alert(resultado2);
+        //alert(resultado3);
+
+    }
+
+    borrarElementos = function(){
+
+    	$("#modalPreguntas").modal('show');
+
+    }
+
+    modalNo = function(){
+		$("#modalPreguntas").modal('hide');    	
+    }
+
+    recargar = function() {
+    	location.reload();
+	}
+
+    /*modalSi = function(){
+
+
+
+    	 name = "";
+		 emal ="";
+		 telefono = "";
+    	
+    	resultado = "";
+    	resultado2 = "";
+    	resultado3 = "";
+	
+        inptnombre = document.getElementById("inputnombre");
+        inptemial = document.getElementById("inputemail");
+        inpttelefono = document.getElementById("inputtel");
+
+        inptnombre.value = ""
+        inpttelefono.value = "";
+        inptemial.value = "";
+
+
+        for(var i = 1; i < 11; i++){
+            document.getElementById("res"+i).checked = false;
+        }
+
+    	document.getElementById("section2").style.display = 'none';
+    	document.getElementById("section1").style.display = 'none';
+        document.getElementById("section3").style.display = 'none';
+
+    	
+    	document.getElementById("imgprincipal").innerHTML = "";
+    	document.getElementById("resultadostring").innerHTML = "";
+    	document.getElementById("botonEliminar").innerHTML = "";
+    	
+    	for(var i = 1; i< 4; i++)
+    	{
+    		document.getElementById("imgsec" + i).innerHTML = "";
+
+    	}
+
+    	$("#modalPreguntas").modal('hide'); 
+    }*/
+
+	setCookie = function(cname,cvalue,exdays) {
+	    var d = new Date();
+	    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+	    var expires = "expires=" + d.toGMTString();
+	    document.cookie = cname+"="+cvalue+"; "+expires;
+	}
+
+	getCookie = function(cname) {
+	    var namec = cname + "=";
+	    var ca = document.cookie.split(';');
+	    for(var i=0; i<ca.length; i++) {
+	        var c = ca[i];
+	        while (c.charAt(0)==' ') c = c.substring(1);
+	        if (c.indexOf(namec) != -1) {
+	            return c.substring(namec.length, c.length);
+	        }
+	    }
+	    return "";
+	}
+
+	checkCookie = function() {
+	    var user=getCookie("username");
+        var user2 = document.getElementById("inputnombre").value;
+	    if (user != "" && user == user2) {
+	        alert("Bienvenido de nuevo " + user);
+	    } else {
+	       user = document.getElementById("inputnombre").value;
+	       if (user != "" && user != null) {
+	           setCookie("username", user, 30);
+	       }
+	    }
+	}
+
+});
+
+</script>
+<body onload="obtenerFecha(), loadImages()">
+<div class="container" id="cont">
+	<div class="row clearfix">
+		<div class="col-md-12 column" id="head">
+			<div>
+		            <h1>Activitat</h1>
+		            <div>
+		            	
+		            </div>		
+			</div>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column" id="registro">
+	        <div id="fecha"></div>
+            <h2>
+                Introduce tus datos
+            </h2>
+            <form method="post">
+            <div id="introtot" class="row clearfix">
+		        <div id="intronom" class="col-md-4 column">
+		        	Nombre
+		        	<input type="text" name="nombre" id="inputnombre" placeholder="Nombre" required>
+		        </div>
+		        <div id="introemail" class="col-md-4 column">
+		        	Email
+		        	<input type="text" name="email" id="inputemail" placeholder="ejemplo@email.com" required>
+		        </div>
+		        <div id="introtel" class="col-md-4 column">
+		        	Telefono
+		        	<input type="text" name="tel" id="inputtel" placeholder="601 602 603" required>
+		        </div>
+            </div>
+            <button onclick="recogerValores(), checkCookie()" type="button" value="Sign In" id="botonSign" class="boton btn btn-warning">Sign In</button>
+            <button onclick="alertVariables()" type="button" value="Sign In" id="botonConsole" class="boton btn btn-warning">Console</button>
+          </form>
+		</div>
+	</div>
+	<div class="row clearfix" id="section1"  style="display: none">
+		<div class="col-md-12 column">
+            <h2>Preguntas</h2>
+            <div id="todaspreguntas">
+                <div id="p1" class="divpreguntas">
+                    <p>¿Que color te llama mas la atención?</p>
+                    	<div id="respuesta1" class="radio">
+                    		<input type="radio" name="res1" id="res1" value="Rojo" />
+	                        <label id="rojo">Rojo</label>
+                        </div>
+                        <div id="respuesta2" class="radio respuestas">
+                        	<input type="radio" name="res1" id="res2" value="Azul" />
+	                        <label id="azul">Azul</label>
+                        </div>
+                        <div id="respuesta3" class="radio respuestas">
+                        	<input type="radio" name="res1" id="res3" value="Verde" />
+	                        <label id="verde">Verde</label>
+                        </div>
+                </div>
+                <div id="p2" class="divpreguntas">
+                    <p>¿Que tipo de figura te parece mas llamativa?</p>
+                    	<div id="respuesta21" class="radio">
+                    		<input type="radio" name="res2" id="res4" value="Rombo" />
+	                        <label id="rombo">Rombo</label>	                        
+                        </div>
+                        <div id="respuesta22" class="radio respuestas">
+                        	<input type="radio" name="res2" id="res5" value="Cuadrado" />
+	                        <label id="cuadrado">Cuadrado</label>
+                        </div>
+                        <div id="respuesta23" class="radio respuestas"> 
+	                        <input type="radio" name="res2" id="res6" value="Circulo" />
+	                        <label id="circulo">Circulo</label>
+                        </div>
+                        <div id="respuesta24" class="radio respuestas">
+                        	<input type="radio" name="res2" id="res7" value="Triangulo" />
+	                        <label id="triangulo">Triangulo</label>
+                        </div>
+                </div>
+                <div id="p3" class="divpreguntas">
+                    <p>¿Donde pasarías tus vacaciones?</p>
+                    <div id="respuesta31">
+                    	<input type="radio" name="res3" id="res8" value="Isla" />
+	                    <label id="isla">Isla paradisiaca</label>
+                    </div>
+                    <div id="respuesta32" class="respuestas">
+                    	<input type="radio" name="res3" id="res9" value="Alpes" />
+	                    <label id="alpes">Alpes Franceses</label>
+                    </div>
+                    <div id="respuesta33" class="respuestas">
+                    	<input type="radio" name="res3" id="res10" value="Patagonia" />
+	                    <label id="circulo">Patagonia Argentina</label>
+                    </div>
+                </div>
+            </div>
+            <button onclick="capturarRadio()" type="button" id="botonAceptar" class="boton btn btn-warning">Aceptar</button>
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column" id="section2" style="display: none">
+          <h2>RESULTADO</h2>
+          <p id="resultadostring"></p>
+          <div id="images">
+          	<div  class="row clearfix">
+		  		<div id="imgprincipal" class="col-md-12 column" style="text-align: center">
+		  			
+		  		</div>
+		  	</div>
+		  	<div class="row clearfix" style="margin-top: 5%;">
+		  		<div id="imgsec1" class="col-md-4 column" style="text-align: center">
+		  			
+		  		</div>
+		  		<div id="imgsec2" class="col-md-4 column" style="text-align: center">
+		  			
+		  		</div>
+		  		<div id="imgsec3" class="col-md-4 column" style="text-align: center">
+		  			
+		  		</div>		  				  		
+		  	</div>	
+          </div>
+          <div style="text-align: center;" id="botonEliminar">
+          </div>
+          <div id="modalPreguntas" class="modal fade">
+				<div class="modal-dialog">
+					<div class="modal-content">
+					    <div class="modal-header">
+					        <h4 id="pregunta" class="modal-title">
+					        	¿REPETIR EL FORMULARIO?
+					        </h4>
+					    </div>
+					    <div id="modalrespuestas" class="modal-body">
+							<button id="botonSi" onclick="recargar()" style="width: 30%" class="boton btn btn-primary">SI</button>
+							<button id="botonNo" onclick="modalNo()" style="width: 30%; float:right;" class="boton btn btn-primary">NO</button>
+					    </div>
+					    <div class="modal-footer">
+					    </div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div>	          
+		</div>
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column" id="section3" style="display: none;">
+          <h2>Conclusiones</h2>
+          <p>
+          		Esta práctica me ha parecido muy completa. He tocado tanto codigo HTML/CSS como Javascript. En ningún momento me he visto perdido en cuanto al funcionamiento y siempre he sabido hacer los que se pedía. A sida una práctica en la cual he aprendido y pulido muchas cosas. Con ganas de la siguiente.
+          </p>		
+          <div>
+          	<hr style="color: white; width: 30%;">
+          </div>
+		</div>
+	</div>	
+	<footer>
+		<h3>
+		-Práctica realizada por Adrián Feria López-
+		</h3>
+	</footer>
+</div>
+</body>
+</html>

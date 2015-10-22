@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Ejercicio 1.3.1:  Scope</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+	<script type="text/javascript">
+
+
+	/*---------------- RESPUESTA 2 --------------*/
+
+	function ciutadaBCN(){
+
+		var jocSocDe = "BCN";
+
+		alert(jocSocDe);
+	}
+
+	function ciutadaPAR(){
+
+		var jocSocDe = "PAR";
+
+		alert(jocSocDe);
+	}
+
+	/*---------------- RESPUESTA 3 --------------*/
+
+	var elMeuContinentES = "EUROPAAA!"
+
+	function ciutadaBCN_2(){
+
+		var jocSocDe = "BCN";
+
+		alert(jocSocDe + "; " + elMeuContinentES);
+	}
+
+	function ciutadaPAR_2(){
+
+		var jocSocDe = "PAR";
+
+		alert(jocSocDe + ": " + elMeuContinentES);
+	}
+
+	/*---------------- RESPUESTA 5 --------------*/
+
+	var variableGlobal = "jo sóc d’una ciutat d’Europa";
+
+	function ciutadaBCN_3(){
+
+		alert(variableGlobal);
+	}
+
+	function ciutadaPAR_3(){
+
+		alert(variableGlobal);
+	}
+
+	</script>
+
+</head>
+
+<body>
+<div class="container">
+	<div  class="row clearfix">
+		<h2 style="text-align: center;" >Ejercicio 1.3.1 Scope</h2>
+		<div style="border: 1px black solid;" style="margin-top: 30px;" id="pre1" class="col-md-12 column">
+		<h4>Dona una definició de:  (sempre amb les teves paraules)</h4>
+		<p>
+			<div>Variable Global: Una variable global es una variable que la decalramos en el "main" del programa, y de esta manera podremos utilizarla en todo el programa/aplicación</div>
+
+			<div>Variable Local: Una variable local es una variable que declaramos dentro de una función y solo podremos utilizarla dentro de esta función. Si la utilizaramos fuera de la función el programa no la reconocería.</div>
+
+			<div>Ámbito: Es donde se delimita el uso de una variable. Por ejemplo una variable local de una funcion tendría el ambito de uso en la parte del codigo entre los "{}" </div> 
+
+			<div>Scope: Es en que ambito se puede utilizar una variable.</div>
+
+		</p>
+		</div>
+	</div>
+	<div style="margin-top: 10px; border: 1px black solid;" class="row clearfix">
+		<div  id="pre2" class="col-md-12 column">
+			<h4>Resposta 2</h4>
+			<div style="text-align: center;" class="col-md-12 column">
+				<h6>
+					Código
+				</h6>
+				<code>
+				function ciutadaBCN(){<br />
+				<br />
+						var jocSocDe = "BCN";<br />
+				<br />
+						alert(jocSocDe);<br />
+					}<br />
+				<br />
+					function ciutadaPAR(){<br />
+				<br />
+						var jocSocDe = "PAR";<br />
+				<br />
+						alert(jocSocDe);<br />
+					}
+				</code>
+			</div>
+			<div class="col-md-12 column">
+				<div id="divBotones" style="text-align: center; margin-top: 10px; margin-bottom: 40px;">
+					<button style="width: 200px" class="btn btn-success" id="buttonBCN" onclick="ciutadaBCN()">BCN</button>
+					<button style="width: 200px" class="btn btn-danger" id="buttonPAR" onclick="ciutadaPAR()">PAR</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div style="margin-top: 10px; border: 1px black solid;" class="row clearfix">
+		<div id="pre3" class="col-md-12 column">
+			<h4>Resposta 3</h4>
+			<div style="text-align: center;" class="col-md-12-column">
+				<h6>Código</h6>
+				<code>
+				var elMeuContinentES = "EUROPAAA!"<br />
+				<br />
+				function ciutadaBCN_2(){<br />
+				<br />
+					var jocSocDe = "BCN";<br />
+				<br />
+					alert(jocSocDe + "; " + elMeuContinentES);<br />
+				}<br />
+				<br />
+				function ciutadaPAR_2(){<br />
+				<br />
+					var jocSocDe = "PAR";<br />
+				<br />
+					alert(jocSocDe + ": " + elMeuContinentES);<br />
+				}
+				</code>	
+			</div>
+			<div class="col-md-12 column">
+				<div id="divBotones" style="text-align: center; margin-top: 10px; margin-bottom: 40px;">
+					<button style="width: 200px" class="btn btn-success" id="buttonBCN" onclick="ciutadaBCN_2()">BCN</button>
+					<button style="width: 200px" class="btn btn-danger" id="buttonPAR" onclick="ciutadaPAR_2()">PAR</button>
+				</div>
+			</div>		
+		</div>
+	</div>
+	<div style="margin-top: 10px;" class="row clearfix">
+		<div style="border: 1px black solid;" id="pre4" class="col-md-12 column">
+		<h4>Resposta 4</h4>
+		<p>
+			No se puede hacer. Cada función tiene una variable local que representa del país que són. Para poder realizar el ejercicio, habría que cambiar las dos variables por “jo sóc d’una ciutat d’Europa”. O crear una variable global con el texto “jo sóc d’una ciutat d’Europa” y en mi caso cambiar los alert por: <mark>alert(nuevaVariableGlobal)</mark>, pero de este modo modificamos mas de una linea de código.
+		</p>
+		</div>
+	</div>
+	<div style="margin-top: 10px;" class="row clearfix">
+		<div style="border: 1px black solid;" id="pre5" class="col-md-12 column">
+			<h4>Resposta 5</h4>
+			<div style="text-align: center;" class="col-md-12 column">
+				<h6>Código</h6>
+				<code>
+					var variableGlobal = "jo sóc d’una ciutat d’Europa";<br />
+					<br />
+					function ciutadaBCN_3(){<br />
+					<br />
+						alert(variableGlobal);<br />
+					}<br />
+					<br />
+					function ciutadaPAR_3(){<br />
+					<br />
+						alert(variableGlobal);<br />
+					}
+				</code>
+			</div>
+			<div class="col-md-12 column">
+				<div id="divBotones" style="text-align: center; margin-top: 10px; margin-bottom: 40px;">
+					<button style="width: 200px" class="btn btn-success" id="buttonBCN" onclick="ciutadaBCN_3()">BCN</button>
+					<button style="width: 200px" class="btn btn-danger" id="buttonPAR" onclick="ciutadaPAR_3()">PAR</button>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<div style="margin-top: 10px;" class="row clearfix">
+		<div style="border: 1px black solid;" id="pre6" class="col-md-12 column">
+		<h4>Resposta 6</h4>
+		<p>
+			No he buscado información en ningún sitio. Simplemente he pensado que sin una variable global no podriamos cambiar el funcionamiento de 2 funciones a la vez modificando tan solo una linea de código.
+		</p>
+		</div>
+	</div>
+		<div style="margin-top: 10px;" class="row clearfix">
+		<div style="border: 1px black solid;" id="pre7" class="col-md-12 column">
+		<h4>Resposta 7</h4>
+		<p>
+
+		</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

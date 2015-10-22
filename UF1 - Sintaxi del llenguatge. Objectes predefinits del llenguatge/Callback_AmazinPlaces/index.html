@@ -1,0 +1,145 @@
+<!doctype html>
+<html class="no-js" lang="en">
+      <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+            <title>Places</title>
+            <link rel="stylesheet" href="css/foundation.css" />
+            <link rel="stylesheet" href="css/estilos.css" />
+            <script src="js/vendor/modernizr.js"></script>
+            <link href='http://fonts.googleapis.com/css?family=Yellowtail' rel='stylesheet' type='text/css'>
+            <link rel="icon" type="image/png" href="img/icon.png" />
+      </head>
+
+      <script type="text/javascript">
+
+      
+      var sources = [
+
+        "beach.jpg",
+        "desert.jpg",
+        "mountain.jpg",
+        "snow.jpg",
+        "city.jpg",
+        "volcano.jpg",
+        "niagara.jpg",
+        "boreal.jpg",
+        "iris.jpg",
+        "moon.jpg"
+      ];
+
+
+      function loadImages(callback) {
+
+        var images = []; // declaramos una array vacia que iremos llenando a la hora de cargar las imagenes. Será nuestra array donde guardaremos los indices.
+        var loadedImages = 0; //variable que nos indicará cada vez que se carga una imagen.
+        var numImages = 0; //variable que nos va a indicar la cantidad de imagenes que tenemos con un numero entero.
+        
+
+        for(var items in sources) { //obtenemos el numero de imagenes que tenemos.
+          numImages++;
+          console.log("Hay " + numImages + " imagenes");
+        }
+        for(var items in sources) { 
+      
+          images[items] = new Image(); // cada valor de la array images[] es una Imagen()
+          
+          images[items].onload = function() {
+            
+            if(++loadedImages >= numImages) { //Cuando la variable loadedImages sea superior a numImages (numero total de imagenes), todas las imagenes estarán cargadas.
+              alert("IMAGENES CARGADAS!");
+              callback(); //callback que muestra las imagenes.
+            }
+
+          };
+
+          images[items].src = "img/" + sources[items]; //Ruta de las imagenes que tenemos en local.
+        }
+      }
+
+      
+      mostra = function() { // función que creará las etiquetas <img> donde van a cargarse las imagenes.
+        
+        var numaleatorios = []; // array vacia donde iremos guardando los varlores del random() para no mostrar imagenes repetidas.
+        
+        do
+        {
+          var x = Math.floor(10 * Math.random());
+          if(numaleatorios.indexOf(x)==-1)
+          {
+          	numaleatorios.push(x)
+
+          	document.getElementById('div' + x).innerHTML = "<img class='img' src='img/" + sources[x] + "'>"; //creamos las etiquetas <img> con innerHTML en el div que nos interesa.
+          	document.getElementById('div' + x).style.display = "inline"; //mostramos los div donde se muestran las imagenes.
+          	document.getElementById('but1').style.display = "inline";
+          }
+        }while(numaleatorios.length < 5) //iremos creando etiquetas <img> hasta que tengamos el numero adecuado. En este caso 5.
+
+      }
+
+      comen = function(){
+      	alert("Despues de haber terminado el ejercicio me di cuenta que podría haber organizado los divs de otra manera, creandolos a la vez que las etiquetas <img> y dandoles float left o right según creyese conveniente.");
+      }
+
+
+
+      </script>
+
+  <body class="fondo" onload="loadImages(mostra)">
+      <div class="row">
+        <div class="row">
+              <div class="large-12 columns" style="text-align: center;">
+                <h1 class="titulo">Amazing Places!</h1>
+                <button id="but1" onclick="comen()" style="display:none;">Comentario</button>
+              </div>
+        </div>
+        <div class="row">
+          <div class="large-12 columns">
+              <div id="div0" style="display:none;" class="large-6 columns divimagen">
+                  
+              </div>
+              <div id="div1" style="display:none;" class="large-6 columns divimagen">
+                
+              </div>
+          </div>
+          <div class="large-12 columns">
+              <div id="div2" style="display:none;" class="large-6 columns divimagen">
+                
+              </div>
+              <div id="div3" style="display:none;" class="large-6 columns divimagen">
+                
+              </div>
+          </div>
+          <div class="large-12 columns">
+              <div id="div4" style="display:none;" class="large-6 columns divimagen">
+                
+              </div>
+              <div id="div5" style="display:none;" class="large-6 columns divimagen">
+                
+              </div>
+          </div>
+          <div class="large-12 columns">
+              <div id="div6" style="display:none;" class="large-6 columns divimagen">
+                
+              </div>
+              <div id="div7" style="display:none;" class="large-6 columns divimagen">
+                
+              </div>
+          </div>
+          <div class="large-12 columns">
+              <div id="div8" style="display:none;" class="large-6 columns divimagen">
+                
+              </div>
+              <div id="div9" style="display:none;" class="large-6 columns divimagen">
+                
+              </div>
+          </div>                  
+        </div> 
+      </div>    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

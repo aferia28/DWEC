@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CALLBACKS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<script type="text/javascript">
+
+
+
+	function principal(){	
+
+		console.log("Llamo a segunda() desde principal()");
+		console.log("Preparo el lanzamiento de cuarta();");
+		segona();
+		console.log("Acabo de llamar a segunda desde principal()");
+		setTimeout(function(){
+			cuarta();
+		}, 5000);
+
+	}
+
+	function assincrona(funcioAexecutar){
+		funcioAexecutar();
+	}
+
+	function clasica(){
+
+		console.log("Empieza la ejecucion de clasica()\n Llamo a segunda() desde clasica()");
+		segona();
+		console.log("Acabo de llamar a segona() desde clasica();");
+		console.log("Llamo a tercera() desde clasica()");
+		tercera();
+		console.log("Acabo de llamar a tercera() desde clasica()");
+		console.log("Acaba la ejecucion de clasica()");
+
+	}
+
+	function ambCallback(funcioAexecutar){
+
+
+		console.log("-------------------------------");
+		console.log("Empieza la ejecucion cambCallback");
+		funcioAexecutar();
+		console.log("Termina la funcon ambCallback()")
+		console.log("-------------------------------");
+	}
+
+	function primera(){
+
+		var x = Math.floor((Math.random() * 2) + 1);
+		if(x == 1)
+		{
+			tercera();
+
+		}else if(x == 2)
+		{
+			segona();
+		}
+	}
+		
+	function segona(){
+
+		console.log("-------------------------------");
+		console.log("Empieza la ejecucion de segunda()\n Entro en el bucle llarg()\n Surto del bucle llarg()\n Acaba la ejecucion de segunda()\n");
+		console.log("-------------------------------");
+	}
+
+	function tercera(){
+
+		console.log("-------------------------------");
+		console.log("Empieza la ejecucuon de tercera()\nEntro al bucle llarg()\n Surto del bucle llarg() \n Acaba la ejecucion de tercea()\n");
+		console.log("-------------------------------");
+	}
+
+	function cuarta(){
+
+		console.log("Empieza la ejecucion de cuarta()");
+		alert("CUIDADOORRRRR!!");
+		console.log("Acaba la ejecucion de cuarta();");
+
+	}
+
+
+</script>
+
+<body>
+<div class="container" style="width: 100%;">
+	<div class="row clearfix" style="text-align: center;">
+		<section id="s1" class="col-md-12 column">
+			<div id="titulo">
+				<h1 style="font-family:Source Sans Pro; font-size: 5em; color: white;"> Us funcions</h1>
+				<h2 style="font-family:Source Sans Pro; color: white; font-size: 1.75em">Clasica, Callback, Asincorna</h2>
+			</div>
+		</section>
+		<section class="col-md-12 column" id="s2">
+			<h2 style="font-family:Source Sans Pro; text-align: center; font-size: 2.80em">Funcions</h2>
+			<div class="col-md-12 column" style="text-align: center;">
+				<div class="col-md-4 column">
+					<div>
+						<img src="clasica.png">
+					</div>
+					<button style="margin-top: 30px" id="bclas" onclick="clasica()">CLASICA</button>
+					<p style="margin-top: 20px; font-family: verdana;">
+						La versió clàssica()farà una execució seqüencial de les funcions.
+						El programa anirà informant a la consola d'on està i que està fent.
+					</p>
+				</div>
+				<div class="col-md-4 column">
+					<div>
+						<img src="call.png">
+					</div>
+					<button style="margin-top: 30px" id="bcall" onclick="ambCallback(primera)">CALLBACK</button>
+					<p style="margin-top: 20px; font-family: verdana;">
+						La versió ambCallback(funcioAexecutar) serà una funció que recull com a paràmetre una altra funció. De manera aleatòria executarà la funció tercera o la funció segona.
+					</p>
+				</div>
+				<div class="col-md-4 column">
+					<div>
+						<img src="asin.png">
+					</div>
+					<button style="margin-top: 20px" id="basin" onclick="assincrona(principal)">ASINCRONA</button>
+					<p style="margin-top: 30px; font-family: verdana;">
+						El treball d'aquesta funció assíncrona serà llençar un alert i escriure alguna cosa a la consola 5 segons desprès d'haver acabat l'execució de la funció que la va crear.
+					</p>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="row clearfix">
+		<section class="col-md-12 column" id="s4" style="padding-top: 20px;">
+			<article id="divicon" style="float: left;">
+				<div style="margin-left: 150px; margin-top: 10px">
+					<img style="height: 100px; width: 100px; margin-left: 20px;" src="codigo.png">
+					<h3 style="margin-top: 10px; color: white; text-align:center;">
+						CODI
+					</h3>
+					<h4 style="text-align:center; color: white;">
+						de les funcions
+					</h4>
+				</div>
+			</article>
+	 		<article id="cclasica" style="float: right">
+				<div style="border-radius: 5px; height: 200px; width: 500px; background-color: white; overflow-y: scroll; margin-top: 5px;">
+					<code>
+							<br \>
+							function clasica(){ <br \>
+						&nbsp;&nbsp;&nbsp;&nbsp;console.log("Empieza la ejecucion de clasica()\n Llamo a segunda() desde clasica()");<br \>
+						&nbsp;&nbsp;&nbsp;&nbsp;segona();<br \>
+						&nbsp;&nbsp;&nbsp;&nbsp;console.log("Acabo de llamar a segona() desde clasica();");
+						&nbsp;&nbsp;&nbsp;&nbsp;console.log("Llamo a tercera() desde clasica()");
+						&nbsp;&nbsp;&nbsp;&nbsp;tercera();<br \>
+						&nbsp;&nbsp;&nbsp;&nbsp;console.log("Acabo de llamar a tercera() desde clasica()");
+						&nbsp;&nbsp;&nbsp;&nbsp;console.log("Acaba la ejecucion de clasica()");<br \>
+
+						&nbsp;&nbsp;}<br \><br \>
+
+							function segona(){<br \>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("-------------------------------");
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("Empieza la ejecucion de segunda()\n Entro en el bucle llarg()\n Surto del bucle llarg()\n Acaba la ejecucion de segunda()\n");<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("-------------------------------");<br \>
+								&nbsp;&nbsp;}<br \><br \>
+
+							function tercera(){<br \>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("-------------------------------");
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("Empieza la ejecucuon de tercera()\nEntro al bucle llarg()\n Surto del bucle llarg() \n Acaba la ejecucion de tercea()\n");<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("-------------------------------");<br \>
+							&nbsp;&nbsp;}
+
+					</code>
+				</div>
+			</article>
+			<article id="ccall" style="float: right; margin-top: 30px; position: relative;">
+				<div style="border-radius: 5px; height: 200px; width: 500px; background-color: white; overflow-y: scroll;">
+				<code>
+										
+							<br \>
+							function ambCallback(funcioAexecutar){<br \>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("-------------------------------");
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("Empieza la ejecucion cambCallback");
+								&nbsp;&nbsp;&nbsp;&nbsp;funcioAexecutar();<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("Termina la funcon ambCallback()")
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("-------------------------------");<br \>
+							}<br \><br \>
+
+							function primera(){<br \>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;var x = Math.floor((Math.random() * 2) + 1);<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;if(x == 1)<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;{<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;tercera();<br \>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;}else<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;if(x == 2)<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;{<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;segona();<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;}<br \>
+							}<br \><br \>
+
+							[button onclick="ambCallback(primera)"]CALLBACK [button]							
+					
+				</code>
+				</div>
+			</article>
+			<article id="casin" style="margin-top: 236px; margin-left: 72px;">
+				<div style="border-radius: 5px; height: 200px; width: 500px; background-color: white; overflow-y: scroll; position: absolute;">
+					<code>
+							function assincrona(funcioAexecutar){<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;funcioAexecutar();<br \>
+							&nbsp;&nbsp;}<br \><br \>
+
+							function principal(){<br \>	
+
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("Llamo a segunda() desde principal()");
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("Preparo el lanzamiento de cuarta();");
+								&nbsp;&nbsp;&nbsp;&nbsp;segona();<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("Acabo de llamar a segunda desde principal()");<br \><br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(function(){<br \>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cuarta();<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;}, 5000);<br \>
+
+							&nbsp;&nbsp;}<br \><br \>
+
+							function cuarta(){<br \>
+
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("Empieza la ejecucion de cuarta()");
+								&nbsp;&nbsp;&nbsp;&nbsp;alert("CUIDADOORRRRR!!");<br \>
+								&nbsp;&nbsp;&nbsp;&nbsp;console.log("Acaba la ejecucion de cuarta();");<br \>
+
+							&nbsp;&nbsp;}<br \><br \>	
+
+							[button onclick="assincrona(principal)"]ASSINCRONA [button]			
+					</code>
+				</div>
+			</article>
+		</section>
+	</div>
+	<div class="row clearfix">
+		<section class="col-md-12 column" id="s3" style="padding-top: 20px;">
+			<h2 style="font-family: verdana; text-align: center; color: black;">Ideas</h2>
+			<article>
+				<p style="font-family:Helvetica Neue; color: black;">
+				Al principio me costó un poco lograr entender el funcionamiento del ejercicio, pero despues de leerlo un par de veces y quedarme claro fuí haciendolo poco a poco y sin demasiadas complicaciones. Sí que es cierto que la primera función Callback se me atragantó un poco. Una vez consigues hacer funcionar el botón con la función callback, el boton con la función asincrona no me ha dado demasiados problemas.
+			</p>
+			</article>
+			<hr class="hr">
+			<article>
+				<p style="font-family: Helvetica Neue; color: black;">
+				El programa ha funcionado como esperaba. De la misma forma en la que debería hacerlo según el PDF que descargamos del Kanbanize.
+				</p>
+			</article>
+			<hr class="hr">
+			<article>
+				<p style="font-family: Helvetica Neue; color: black;">
+				Aunque las funciones con callback del ejercicio las he logrado hacer correctamente. No me queda del todo claro las ventajas que podría llegar a tener. Puedo pensar, que si le pasamos una función a otra función como parametro, no es necesario modificar el codigo para que esta cambie su comportamiento. Tan solo cambiando los valores de una podemos hacer el que programa funciona de una manera distinta.
+				</p>
+			</article>
+		</section>
+	</div>
+</div>
+<footer style="background-color: grey;">
+	<h2 style="text-align: center;">DESENVOLUPAMENT D'APLICACION EN ENTORN CLIENT</h2>
+	<h3 style="text-align: center;">Adrián Feria</h3>
+</footer>
+</body>
+</html>

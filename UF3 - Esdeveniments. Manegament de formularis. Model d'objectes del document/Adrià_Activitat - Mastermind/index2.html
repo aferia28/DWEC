@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Mastermind!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+	<!--link rel="stylesheet/less" href="less/bootstrap.less" type="text/css" /-->
+	<!--link rel="stylesheet/less" href="less/responsive.less" type="text/css" /-->
+	<!--script src="js/less-1.3.3.min.js"></script-->
+	<!--append ‘#!watch’ to the browser URL, then refresh the page. -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Fav and touch icons -->
+ 
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/masterui.js"></script>
+	<script type="text/javascript" src="js/eventos.js"></script>	
+	<script type="text/javascript" src="js/master.js"></script>
+	<script type="text/javascript" src="js/config.js"></script>
+
+	
+</head>
+<script type="text/javascript">
+eventos.empezar();
+config.modoDebug();
+</script>
+<body>
+<div class="container" id="tot"> 
+	<div id="header_" class="header_">
+    	<button id="clearLS" onclick="masterui.clearLocalStorage()">Clear localStorage</button> 
+	</div>
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<div class="row clearfix" id="tablero_">
+				<div class="col-md-4 column" id="principio_izq">
+					<div id="titulo" class="shows titulo">
+						<img id="img_master_" src="img/master.png" style="height: 75px; width=75px">
+						<img id="img_mind_" src="img/mind.png" style="height: 75px; width=75px; margin-left: 25%; margin-top: -5%;">
+							<!--IMAGEN DEL TITULO-->
+					</div>
+					<div id="slide_range" class="shows slider">
+						<form id="form_range" oninput="amount.value=rangeInput.value">
+					        <input id="rango" type="range" name="rangeInput" min="1" max="10" value="5" step="1">
+					        <output id="num_intentos_slider" name="amount" for="rangeInput">5</output>
+    					</form>
+					</div>
+					<div id="div_boton_comenzar" class="shows boton_com">
+						<button class='btn btn-warning boton_' id="boton_comenzar">COMENZAR PARTIDA!</button>
+					</div>
+					<div id="fichas_colores" class="shows container_fichas">
+						<div id="n_intentos">
+							&nbsp;&nbsp;&nbsp;Nº INTENTOS: <h2 class="h2intentos" id="texto_intentos"></h2>
+						</div>
+						<div id="div_boton_probar">
+							<button id="boton_probar" class="btn btn-sucess">PROBAR</button>
+						</div>
+						<div class="row clearfix" id="cinco_fichas" style="margin-left: -1%;">
+							<div id="ficha_ficha1" name="buttonficha" class="col-md-2 column fichas"></div>
+							<div id="ficha_ficha2" name="buttonficha" class="col-md-2 column fichas"></div>
+							<div id="ficha_ficha3" name="buttonficha" class="col-md-2 column fichas"></div>
+							<div id="ficha_ficha4" name="buttonficha" class="col-md-2 column fichas"></div>
+							<div id="ficha_ficha5" name="buttonficha" class="col-md-2 column fichas"></div>
+							<!--<div id="fichaficha6_vacio" class="col-md-2 column"></div>-->
+						</div>
+						<div class="row clearfix" id="div_color_picker">
+								<div class="row clearfix" id="posibilidad">
+									<div id="color1" class="col-md-2 column colores red" 
+									hreflang="red" 
+									data-value="1"></div>
+									<div id="color2" class="col-md-2 column colores green"
+									hreflang="green" 
+									data-value="2"></div>
+									<div id="color3" class="col-md-2 column colores black"
+									hreflang="black"
+									data-value= "3"></div>
+									<div id="color4" class="col-md-2 column colores yellow"
+									hreflang="yellow"
+									data-value="4"></div>
+									<div id="color5" class="col-md-2 column colores violet"
+									hreflang="violet"
+									data-value="5"></div>
+									<div id="color6" class="col-md-2 column colores blue"
+									hreflang="blue"
+									data-value="6"></div>
+								</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 column div_prin_centro" id="principio_centro">
+					<img id="img_master" src="img/master.png" style="margin-left: -100px;">
+					<img id="img_mind" src="img/mind.png" style="margin-top: -50px;">
+					<button id="boton_start" class="btn btn-default">START!</button>
+				</div>
+				<div class="col-md-4 column" id="principio_der">
+					<div id="div_pistas_progreso" class="row clearfix div_progreso">
+						<div id="div_progreso" class="col-md-9 column" style="display: none; width: 65%;"> 
+							<div class="row clearfix" id="progreso_row">
+
+							</div>
+						</div>
+						<div id="div_pistas" class="col-md-3 column"  style="display: none; width: 35%;">
+							<div class=" row clearfix" id="progreso_pistas">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="modalWin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h4 class="modal-title" id="myModalLabel"></h4>
+	      </div>
+	      <div id="modalBody" class="modal-body">
+
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Aceptar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>	
+	<!--<div id="footer_" class="footer_"></div>-->
+</div>
+</body>
+</html>

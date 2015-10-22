@@ -1,0 +1,44 @@
+body{
+    font-family: 'Titillium Web', sans-serif;
+}
+
+#divtot{
+    width: 100%;
+    padding: 0;
+}
+
+#sectionNAV{
+    border-bottom: solid gainsboro 1px;
+    width: 100%;
+}
+
+#sectionTV {
+    height: 20%;
+    background-color: whitesmoke;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+h2{
+    margin-left: 5%;
+    font-family: 'Titillium Web', sans-serif;
+}
+
+ol{
+    font-size: medium;
+}
+li{
+    width: 20%;
+}
+#sectionSERIES{
+    margin-top: 4%;
+    margin-left: 4%;
+}
+
+#secSERIES2{
+    margin-left: 6%;
+}
+
+ol>li:hover{
+    background-color: #b94a48;
+}

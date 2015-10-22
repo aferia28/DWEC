@@ -1,0 +1,51 @@
+h1, h2, h3, h4{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.container{
+    padding: 0;
+    width: 100%;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: medium;
+}
+
+#nav{
+    width: 100%;
+    border-radius: 0;
+    background-color: #285e8e;
+}
+#title{
+    font-family: 'Open Sans Condensed', sans-serif;
+    margin: 0%;
+    color: white;
+    padding-left: 30%;
+    margin-top: 5%;
+}
+
+#topTitle{
+    padding: 0;
+}
+
+img{
+    float: left;
+    margin-left: 5%;
+}
+#contenedor{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+#botonCargar{
+    border-radius: 0;
+}
+
+#inputText{
+    border-radius: 0;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
+}

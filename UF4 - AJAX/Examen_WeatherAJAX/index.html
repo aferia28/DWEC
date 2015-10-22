@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>El temps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/ajax.js"></script>
+</head>
+
+<body>
+<div class="container">
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<nav id="nav" class="navbar navbar-header" role="navigation">
+				<div class="navbar-header">
+					 <button type="button" class="navbar-toggle">
+					 </button> <a id="topTitle" class="navbar-brand" href="#"><img src="img/wea.png" style="width: 20%; height: 20%;"><h3 id="title">The Weather</h3></a>
+				</div>
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<form class="navbar-form navbar-left" role="search" style="margin-left: 40%;">
+						<div class="form-group">
+							<input type="text" id="inputText" class="form-control">
+						</div> <button type="submit" id="botonCargar" class="btn btn-primary">Mostrar temps</button>
+					</form>
+				</div>
+			</nav>
+		</div>
+        <div class="row clearfix" id="cont1">
+            <div class="col-md-6" id="contenedorIMG"></div>
+            <div class="col-md-6" id="contenedor2" style="text-align: center"></div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" id="errorMensajes"></div>
+            <div class="col-md-4"></div>
+        </div>
+	</div>
+</div>
+</body>
+</html>

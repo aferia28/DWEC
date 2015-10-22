@@ -1,0 +1,20 @@
+      var anim1 = new Kinetic.Animation(function(frame) {
+
+      	for (j=0; j<70; j++)
+		    {
+  		      if (tri1[j].getAttr("y") < 500)
+  		    {
+  			       tri1[j].setY(tri1[j].getY() + 3);
+  		    } else {
+             if(contador1[j]==0){
+                var rand = Math.random()*50;
+                
+                tri1[j].setY( 500 + rand);
+                contador1[j]=1;
+              }
+          }
+            //tri1[j].setY(-2);
+        }	
+      }, layer);
+
+      	anim1.start();

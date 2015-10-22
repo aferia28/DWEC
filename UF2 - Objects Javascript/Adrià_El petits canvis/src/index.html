@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Bootstrap 3, from LayoutIt!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js_clases/scripts.js"></script>
+    <script type="text/javascript" src="js_clases/Variables.js"></script>
+    <script type="text/javascript" src="js_clases/TableroBi.js"></script>
+    <script type="text/javascript" src="js_clases/Casilla.js"></script>
+    <script type="text/javascript" src="js_clases/Ficha.js"></script>
+    <script type="text/javascript" src="js_clases/Comportamiento.js"></script>
+    <script type="text/javascript" src="js_clases/Dragable.js"></script>
+</head>
+<script type="text/javascript">
+$(function() {
+
+    //tablero.crearTablero();
+    //tablero.rellenarTablero();
+
+    //
+});
+</script>
+<body>
+<div class="container">
+	<div class="row clearfix" style="text-align: center;">
+		<div class="col-md-12 column" id="d_tablero" style="width: 675px; margin-top: 1%; margin-left: 20%;">
+            <div id="divMenu">
+                <div id="containerDivMenu" class="contentNormal" style="background-color: white">
+                    <h4>
+                        Config Inicial
+                    </h4>
+                    <div id="porcentajeFR" style="margin-top: 5%;">
+                        <p>
+                            Nº de fichas rojas:
+                        </p>
+                        <form id="form_rangeR" oninput="amount.value=rangeInput.value" class="row clearfix" style="margin-left: 3%;">
+                            <input id="rangoR" type="range" name="rangeInput" min="5" max="40" value="35" step="5" class="col-md-6" style="margin-left: 20%">
+                            <output id="n_fichasR" name="amount" for="rangeInput" class="col-md-6" style="padding: 0;text-align: center; margin-left: 23%; font-size: medium"></output>
+                        </form>
+                    </div>
+                    <div id="porcentajeFV" style="margin-top: 5%;">
+                        <p>
+                            Nº de fichas verdes:
+                        </p>
+                        <form id="form_range" oninput="amount.value=rangeInput.value" class="row clearfix" style="margin-left: 3%;">
+                            <input id="rangoV" type="range" name="rangeInput" min="5" max="40" value="35" step="5" class="col-md-6" style="margin-left: 20%">
+                            <output id="num_intentos_slider" name="amount" for="rangeInput" class="col-md-6" style="padding: 0; margin-left: 23%;text-align: center; font-size: medium"></output>
+                        </form>
+                    </div>
+                    <div id="vecinosFelicidad" style="margin-top: 5%;">
+                        <div id="n_felicidadR">
+                            <p>
+                                ¿Cuantos vecinos necesitan para ser felcies?
+                            </p>
+                            <form id="form_rangeFelicidad" oninput="amount.value=rangeInput.value" style="margin-left: 3%;">
+                                <input id="rangoVecinos" type="range" name="rangeInput" min="1" max="3" value="2" step="1">
+                                <output id="num_vecinos" name="amount" for="rangeInput" style="font-size: medium"></output>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-danger" style="margin-top: 5%;" id="boton_inicio">INICIO</button>
+            </div>
+            <div id="bug" style="border: 1px solid black; margin-top: 20%;" >
+                <p>
+                    ** Hay un pequeño bug qur podría haber resuelto, pero con la cantidad de prácticas que tenemos pendientes. He decidido
+                    entregartelo así. El funcionamiento es correcto. El único problema que he podido observar es que, cuando comprobamos las
+                    posibles casillas a donde mover la ficha, el programa tiene en cuenta a esta propia ficha(la clickada). Es un poco complejo
+                    de explicar, si te parece lo hablamos personalmente.
+                </p>
+            </div>
+		</div>
+	</div>
+</div>
+</body>
+</html>

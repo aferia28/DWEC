@@ -1,0 +1,86 @@
+@media(min-width: 600px){ /* Se aplicarán los estilos a cualquier ancho de ventana de navegador que supere el valor definido en la consulta. */
+						  /* En este caso, se aplicara el estilo a navegadores con el ancho de ventana superior a 600. */
+						  /* Aquí podremos definir puntos de control para diferentes medidas */
+	#cont{
+		width: 70%;
+		margin-left: 15%;
+		font-family: 'Roboto Condensed', sans-serif;
+	}
+
+	h2, h1{
+		font-family: 'Roboto Condensed', sans-serif;	
+	}
+
+	#head{
+ 	  padding: 0.8em;	
+	  color: white;
+	  background-color: #df853e;	
+	}
+	
+	#registro {	 		  	
+	  padding: 0.8em;
+	  color: white;
+	  background-color: #39b1a4;
+	  font-size: 1em;
+	  font-weight: normal;
+	}
+
+	#section1{
+		background-color: #fbfbfb;
+		color: black;
+		padding: 0.8em;
+	}
+
+	#section2{
+		background-color: #f3f3f3;
+		color: black;
+		padding: 0.8em;	
+	}
+
+	#section3{
+		background-color: #dc4d38;
+		color: white;
+		padding: 0.8em;
+	}
+
+	.respuestas{
+		padding-top: 1%;
+	}
+
+	.divpreguntas{
+		padding-bottom: 3%;
+	}
+
+	#fecha{
+		float: right;
+	}
+
+	.boton{
+		border-radius: 0;
+		margin-top: 1.5%;
+		margin-bottom: 0.5%;
+	}
+
+	.menutext2{
+		display: block;
+	}
+
+	.imagenesprincipal{
+		width: 250px;
+		height: 250px;
+	}
+
+	.imagenesecundaria{
+		width: 160px;
+		height: 160px;
+	}
+
+	footer{
+
+		background-color: grey;
+		font-family: 'Roboto Condensed', sans-serif;	
+		padding: 0.8em;
+		text-align: center;
+	}
+
+}

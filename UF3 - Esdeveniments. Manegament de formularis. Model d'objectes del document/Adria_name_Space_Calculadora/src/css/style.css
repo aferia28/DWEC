@@ -1,0 +1,8 @@
+#numero1, #numero2, #operacion_texto{
+	font-size: 50px;
+	text-align: center;
+}
+#result{
+	text-align: center;
+	margin-top: 30px;
+}
